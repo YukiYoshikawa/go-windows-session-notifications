@@ -22,13 +22,13 @@ func main() {
 		for {
 			select {
 			case c := <-changes:
-				switch c {
+				switch c.Param {
 				case session_notifications.WTS_SESSION_LOCK:
 					log.Println("session locked")
 				case session_notifications.WTS_SESSION_UNLOCK:
 					log.Println("session unlocked")
 				}
-				close(m.ChanOk)
+				close(c.ChanOk)
 			}
 		}
 	}()
