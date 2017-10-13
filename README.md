@@ -15,7 +15,7 @@ import (
 func main() {
 	quit := make(chan int)
 
-	changes := make(chan int, 100)
+	changes := make(chan session_notifications.Message, 100)
 	closeChan := make(chan int)
 
 	go func() {
